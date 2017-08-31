@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 LABEL maintainer="eshizhan <eshizhan@126.com>"
 
-RUN sed -i 's/archive.ubuntu.com/cn.archive.ubuntu.com/g' /etc/apt/sources.list
+# RUN sed -i 's/archive.ubuntu.com/cn.archive.ubuntu.com/g' /etc/apt/sources.list
 RUN apt-get update -y && \
     apt-get -y install openssh-server \
                        vim-tiny \
