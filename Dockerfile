@@ -10,7 +10,7 @@ RUN apt-get update -y && \
                        curl \
                        netcat-openbsd \
                        openjdk-8-jdk \
-                       python \
+                       python3 \
                        --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
