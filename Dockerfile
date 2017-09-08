@@ -14,6 +14,9 @@ RUN apt-get update -y && \
                        --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN ln -s /usr/bin/python3 /usr/local/bin/python \
+    && ln -s /usr/bin/pydoc3 /usr/local/bin/pydoc
+
 RUN echo 'root:root' | chpasswd
 
 RUN mkdir -p /var/run/sshd && \
