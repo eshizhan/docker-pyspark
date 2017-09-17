@@ -11,10 +11,14 @@ RUN apt-get update -y && \
                        netcat-openbsd \
                        openjdk-8-jdk \
                        python3 \
+                       python3-pip \
+                       python3-setuptools \
+                       python3-wheel \
                        --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN ln -s /usr/bin/python3 /usr/local/bin/python \
+    && ln -s /usr/bin/pip3 /usr/local/bin/pip \
     && ln -s /usr/bin/pydoc3 /usr/local/bin/pydoc
 
 RUN echo 'root:root' | chpasswd
