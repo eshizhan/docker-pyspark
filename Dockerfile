@@ -1,6 +1,8 @@
 FROM ubuntu:latest
 LABEL maintainer="eshizhan <eshizhan@126.com>"
 
+ENV LANG C.UTF-8
+
 # RUN sed -i 's/archive.ubuntu.com/cn.archive.ubuntu.com/g' /etc/apt/sources.list
 RUN apt-get update -y && \
     apt-get -y install openssh-server \
