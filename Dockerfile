@@ -19,6 +19,9 @@ RUN apt-get update -y && \
                        --no-install-recommends && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN curl -sL -o /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 && \
+    chmod +x /usr/local/bin/dumb-init
+
 RUN ln -s /usr/bin/python3 /usr/local/bin/python \
     && ln -s /usr/bin/pip3 /usr/local/bin/pip \
     && ln -s /usr/bin/pydoc3 /usr/local/bin/pydoc
@@ -37,6 +40,8 @@ VOLUME ["/opt/spark/conf"]
 EXPOSE 22
 
 WORKDIR /opt/spark
+
+ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
 CMD ["/usr/sbin/sshd", "-D"]
 
