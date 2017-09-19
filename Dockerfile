@@ -11,7 +11,7 @@ RUN apt-get update -y && \
                        iputils-ping \
                        curl \
                        netcat-openbsd \
-                       openjdk-8-jdk \
+                       openjdk-8-jre-headless \
                        python3 \
                        python3-pip \
                        python3-setuptools \
