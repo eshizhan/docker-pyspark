@@ -24,7 +24,7 @@ RUN apt-get update -y && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN ln -s /usr/bin/python3.6 /usr/bin/python3 && \
-    ln -s /usr/bin/pydoc3.6 /usr/bin/pydoc3 && \
+    ln -s /usr/bin/pydoc3.6 /usr/bin/pydoc3
 
 RUN curl -sL -o get-pip.py 'https://bootstrap.pypa.io/get-pip.py' && \
     python3 get-pip.py --no-cache-dir
