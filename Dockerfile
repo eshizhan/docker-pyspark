@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:16.04
 LABEL maintainer="eshizhan <eshizhan@126.com>"
 
 ENV LANG C.UTF-8
@@ -31,14 +31,14 @@ RUN curl -sL -o get-pip.py 'https://bootstrap.pypa.io/get-pip.py' && \
 RUN curl -sL -o /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 && \
     chmod +x /usr/local/bin/dumb-init
 
-RUN echo 'root:root' | chpasswd
+# RUN echo 'root:root' | chpasswd
 
 RUN mkdir -p /var/run/sshd && \
     sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
     sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 
 RUN mkdir -p /opt/spark && \
-    curl https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz | tar -zx -C /opt/spark --strip-components=1
+    curl http://mirrors.ocf.berkeley.edu/apache/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz | tar -zx -C /opt/spark --strip-components=1
 
 VOLUME ["/opt/spark/conf"]
 
